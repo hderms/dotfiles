@@ -14,6 +14,7 @@ for fpath in split(globpath(vimsettings, '*.vim'), '\n')
   exe 'source' fpath
 endfor
 let maplocalleader='\'
+let mapleader='\'
 map <silent> <LocalLeader>cj :!clj %<CR>
 map <silent> <LocalLeader>rt :!ctags -F `ack --ruby -f`<CR>
 map <silent> <LocalLeader>nt :NERDTreeToggle<CR>
