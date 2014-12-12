@@ -13,7 +13,7 @@ for fpath in split(globpath(vimsettings, '*.vim'), '\n')
 
   exe 'source' fpath
 endfor
-let mapleader='\'
+let maplocalleader='\'
 map <silent> <LocalLeader>cj :!clj %<CR>
 map <silent> <LocalLeader>rt :!ctags -F `ack --ruby -f`<CR>
 map <silent> <LocalLeader>nt :NERDTreeToggle<CR>
@@ -28,13 +28,6 @@ map <silent> <LocalLeader>fv :vsplit<CR>:FufCoverageFile<CR>
 map <silent> <LocalLeader>gd :e product_diff.diff<CR>:%!git diff<CR>:setlocal buftype=nowrite<CR>
 map <silent> <LocalLeader>pd :e product_diff.diff<CR>:%!svn diff<CR>:setlocal buftype=nowrite<CR>
 map <silent> <LocalLeader>nh :nohls<CR>
-map <LocalLeader>aw :Ack '<C-R><C-W>'
-map <silent> <LocalLeader>bd :bufdo :bd<CR>
-map <silent> <LocalLeader>cc :TComment<CR>
-map <silent> <LocalLeader>uc :TComment<CR>
-
-let g:gist_clip_command = 'pbcopy'
-let g:gist_detect_filetype = 1
 
 set hlsearch
 set number
@@ -102,3 +95,4 @@ Bundle 'mhinz/vim-startify'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'lunaru/vim-less'
 
+hi Visual  guifg=White guibg=LightBlue gui=none
