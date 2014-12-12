@@ -18,7 +18,6 @@ let mapleader='\'
 map <silent> <LocalLeader>cj :!clj %<CR>
 map <silent> <LocalLeader>rt :!ctags -F `ack --ruby -f`<CR>
 map <silent> <LocalLeader>nt :NERDTreeToggle<CR>
-map <silent> <LocalLeader>nr :NERDTree<CR>
 map <silent> <LocalLeader>nf :NERDTreeFind<CR>
 map <silent> <LocalLeader>ff :FufCoverageFile<CR>
 map <silent> <LocalLeader>o :FufCoverageFile<CR>
