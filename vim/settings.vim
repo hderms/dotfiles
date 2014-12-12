@@ -96,3 +96,5 @@ Bundle 'Lokaltog/vim-powerline'
 Bundle 'lunaru/vim-less'
 
 hi Visual  guifg=White guibg=LightBlue gui=none
+syntax enable
+colorscheme monokai
