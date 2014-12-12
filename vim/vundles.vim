@@ -37,3 +37,6 @@ endif
 
 "Filetype plugin indent on is required by vundle
 filetype plugin indent on
+Bundle 'mhinz/vim-startify'
+Bundle 'Lokaltog/vim-powerline'
+Bundle 'lunaru/vim-less'
