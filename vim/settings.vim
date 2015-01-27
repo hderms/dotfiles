@@ -28,6 +28,8 @@ map <silent> <LocalLeader>fv :vsplit<CR>:FufCoverageFile<CR>
 map <silent> <LocalLeader>gd :e product_diff.diff<CR>:%!git diff<CR>:setlocal buftype=nowrite<CR>
 map <silent> <LocalLeader>pd :e product_diff.diff<CR>:%!svn diff<CR>:setlocal buftype=nowrite<CR>
 map <silent> <LocalLeader>nh :nohls<CR>
+map <silent> <LocalLeader>ss :SaveSession<CR>
+map <silent> <LocalLeader>so :OpenSession<CR>
 
 set hlsearch
 set number
@@ -97,3 +99,36 @@ Bundle 'lunaru/vim-less'
 
 syntax enable
 colorscheme monokai
+
+function! FindProjectName()
+  let s:name = getcwd()
+  if !isdirectory(".git")
+    let s:name = substitute(finddir(".git", ".;"), "/.git", "", "")
+  end
+  if s:name != ""
+    let s:name = matchstr(s:name, ".*", strridx(s:name, "/") + 1)
+  end
+  return s:name
+endfunction
+
+" Sessions only restored if we start Vim without args.
+function! RestoreSession2(name)
+  if a:name != ""
+    if filereadable($HOME . "/.vim/sessions/" . a:name)
+      execute 'source ' . $HOME . "/.vim/sessions/" . a:name
+    end
+  end
+endfunction
+
+" Sessions only saved if we start Vim without args.
+function! SaveSession2(name)
+  if a:name != ""
+    execute 'mksession! ' . $HOME . '/.vim/sessions/' . a:name
+  end
+endfunction
+
+" Restore and save sessions.
+if argc() == 0
+  autocmd VimEnter * call RestoreSession2(FindProjectName())
+  autocmd VimLeave * call SaveSession2(FindProjectName())
+end

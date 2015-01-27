@@ -35,3 +35,4 @@ alias gra='git remote add'
 alias grr='git remote rm'
 alias gg='git g'
 
+alias git_recent='for-each-ref --sort=-committerdate refs/heads/ --format=%(refname:short)'
