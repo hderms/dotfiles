@@ -68,7 +68,6 @@ map <silent> <LocalLeader>hws :highlight clear ExtraWhitespace<CR>
 " Highlight too-long lines
 autocmd BufRead,InsertEnter,InsertLeave * 2match LineLengthError /\%126v.*/
 highlight LineLengthError ctermbg=black guibg=black
-autocmd ColorScheme * highlight LineLengthError ctermbg=black guibg=black
 
 set laststatus=2
 set statusline=
@@ -99,6 +98,13 @@ Bundle 'lunaru/vim-less'
 
 syntax enable
 colorscheme monokai
+
+
+
+hi link EasyMotionTarget Search
+hi link EasyMotionTarget2First Search
+hi link EasyMotionTarget2Second Search
+hi link EasyMotionShade Comment
 
 function! FindProjectName()
   let s:name = getcwd()

@@ -41,6 +41,9 @@ task :install_prezto do
     install_prezto
   end
 end
+task :install_vim do
+alias vim='/path/to/your/own/vim'
+end
 
 task :update do
   Rake::Task["vundle_migration"].execute if needs_migration_to_vundle?
