@@ -41,7 +41,9 @@ elif [[ $platform == 'darwin' ]]; then
 fi
 
 # show me files matching "ls grep"
-alias lsg='ll | grep'
+alias lsg='ls -1 | grep'
+
+alias lsd="ls -ld"
 
 # Alias Editing
 alias ae='vim $yadr/zsh/aliases.zsh' #alias edit
@@ -157,9 +159,7 @@ alias portforward='sudo ipfw add 1000 forward 127.0.0.1,3000 ip from any to any 
 alias rdm='rake db:migrate'
 alias rdmr='rake db:migrate:redo'
 
-# Zeus
-alias zs='zeus server'
-alias zc='zeus console'
+
 
 # Rspec
 alias rs='rspec spec'
@@ -190,3 +190,7 @@ alias dbmu='spring rake db:migrate:up'
 
 # Homebrew
 alias brewu='brew update && brew upgrade && brew cleanup && brew prune && brew doctor'
+
+function fir() {
+for spec_file in $(ag -g $1 $2); do sed -i.bak "s/$3/$4/g" $spec_file; done
+}

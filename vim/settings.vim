@@ -35,7 +35,6 @@ set hlsearch
 set number
 set showmatch
 set incsearch
-set background=dark
 set hidden
 set backspace=indent,eol,start
 set textwidth=0 nosmartindent tabstop=2 shiftwidth=2 softtabstop=2 expandtab
@@ -63,11 +62,10 @@ autocmd BufRead,InsertLeave * match ExtraWhitespace /\s\+$/
 " Set up highlight group & retain through colorscheme changes
 highlight ExtraWhitespace ctermbg=red guibg=red
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
-map <silent> <LocalLeader>hws :highlight clear ExtraWhitespace<CR>
 
 " Highlight too-long lines
 autocmd BufRead,InsertEnter,InsertLeave * 2match LineLengthError /\%126v.*/
-highlight LineLengthError ctermbg=black guibg=black
+highlight LineLengthError ctermbg=white guibg=white
 
 set laststatus=2
 set statusline=
@@ -138,3 +136,7 @@ if argc() == 0
   autocmd VimEnter * call RestoreSession2(FindProjectName())
   autocmd VimLeave * call SaveSession2(FindProjectName())
 end
+
+" ag 
+set grepprg=ag\ --vimgrep\ $*
+set grepformat=%f:%l:%c:%m

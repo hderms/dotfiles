@@ -63,6 +63,9 @@
   rc = rebase --continue            # continue rebase
   rs = rebase --skip                # skip rebase
 
+  #Git rebranch
+  rb = !sh -c 'git fetch &&  git checkout --track -b $0 origin/$0'
+
   # remote
   r = remote -v                     # show remotes (verbose)
 
