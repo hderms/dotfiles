@@ -135,7 +135,10 @@ alias cl='clear'
 alias gz='tar -zcvf'
 
 # Ruby
+alias be="bundle exec"
 alias c='rails c' # Rails 3
+alias rc='rails c' # Rails 3
+alias rs='rails s' # Rails 3
 alias co='script/console --irb=pry' # Rails 2
 alias ts='thin start'
 alias ms='mongrel_rails start'
@@ -162,7 +165,6 @@ alias rdmr='rake db:migrate:redo'
 
 
 # Rspec
-alias rs='rspec spec'
 alias sr='spring rspec'
 alias src='spring rails c'
 alias srgm='spring rails g migration'
@@ -190,7 +192,10 @@ alias dbmu='spring rake db:migrate:up'
 
 # Homebrew
 alias brewu='brew update && brew upgrade && brew cleanup && brew prune && brew doctor'
+# Pow
+alias powreset="touch ~/.pow/restart.txt"
 
 function fir() {
 for spec_file in $(ag -g $1 $2); do sed -i.bak "s/$3/$4/g" $spec_file; done
 }
+
