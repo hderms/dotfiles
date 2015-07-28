@@ -31,8 +31,13 @@
   c = commit -m                     # commit with message
   ca = commit -am                   # commit all with message
   ci = commit                       # commit
+  cf =   "!f() { git commit -m \"fix: $@\"; }; f"
+  ctest =   "!f() { echo  \"fix: $@\"; }; f"
   amend = commit --amend            # ammend your last commit
   ammend = commit --amend           # ammend your last commit
+
+  # delete
+  bd = branch -D 
 
   # checkout
   co = checkout                     # checkout

@@ -106,3 +106,5 @@ set sidescroll=1
 " ================ Custom Settings ========================
 so ~/.yadr/vim/settings.vim
 set clipboard=unnamed
+noremap <F12> <Esc>:syntax sync fromstart<CR>
+inoremap <F12> <C-o>:syntax sync fromstart<CR>

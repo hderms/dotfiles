@@ -28,8 +28,9 @@ map <silent> <LocalLeader>fv :vsplit<CR>:FufCoverageFile<CR>
 map <silent> <LocalLeader>gd :e product_diff.diff<CR>:%!git diff<CR>:setlocal buftype=nowrite<CR>
 map <silent> <LocalLeader>pd :e product_diff.diff<CR>:%!svn diff<CR>:setlocal buftype=nowrite<CR>
 map <silent> <LocalLeader>nh :nohls<CR>
-map <silent> <LocalLeader>ss :SaveSession<CR>
-map <silent> <LocalLeader>so :OpenSession<CR>
+map <silent> <LocalLeader>ss :SSave<CR>
+map <silent> <LocalLeader>sl :SLoad<CR>
+map <silent> <LocalLeader>sd :SDelete<CR>
 
 set hlsearch
 set number
@@ -93,6 +94,8 @@ au FileType gitcommit set tw=72
 Bundle 'mhinz/vim-startify'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'lunaru/vim-less'
+Bundle 'tommcdo/vim-lion'
+
 
 syntax enable
 colorscheme monokai
@@ -104,39 +107,19 @@ hi link EasyMotionTarget2First Search
 hi link EasyMotionTarget2Second Search
 hi link EasyMotionShade Comment
 
-function! FindProjectName()
-  let s:name = getcwd()
-  if !isdirectory(".git")
-    let s:name = substitute(finddir(".git", ".;"), "/.git", "", "")
-  end
-  if s:name != ""
-    let s:name = matchstr(s:name, ".*", strridx(s:name, "/") + 1)
-  end
-  return s:name
-endfunction
-
-" Sessions only restored if we start Vim without args.
-function! RestoreSession2(name)
-  if a:name != ""
-    if filereadable($HOME . "/.vim/sessions/" . a:name)
-      execute 'source ' . $HOME . "/.vim/sessions/" . a:name
-    end
-  end
-endfunction
-
-" Sessions only saved if we start Vim without args.
-function! SaveSession2(name)
-  if a:name != ""
-    execute 'mksession! ' . $HOME . '/.vim/sessions/' . a:name
-  end
-endfunction
-
-" Restore and save sessions.
-if argc() == 0
-  autocmd VimEnter * call RestoreSession2(FindProjectName())
-  autocmd VimLeave * call SaveSession2(FindProjectName())
-end
 
 " ag 
 set grepprg=ag\ --vimgrep\ $*
 set grepformat=%f:%l:%c:%m
+
+map <silent> <Leader>cl      :set                  cursorline! <CR>
+imap <silent> <Leader>cl <Esc>:set                  cursorline! <CR>a
+map <silent> <Leader>cc      :set   cursorcolumn!              <CR>
+imap <silent> <Leader>cc <Esc>:set   cursorcolumn!              <CR>a
+map <silent> <Leader>ct      :set   cursorcolumn!  cursorline! <CR>
+imap <silent> <Leader>ct <Esc>:set   cursorcolumn!  cursorline! <CR>a
+map <silent> <Leader>co      :set   cursorcolumn   cursorline  <CR>
+imap <silent> <Leader>co <Esc>:set   cursorcolumn   cursorline  <CR>a
+map <silent> <Leader>cn      :set nocursorcolumn nocursorline  <CR>
+imap <silent> <Leader>cn <Esc>:set nocursorcolumn nocursorline  <CR>a
+

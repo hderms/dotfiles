@@ -45,6 +45,8 @@ alias lsg='ls -1 | grep'
 
 alias lsd="ls -ld"
 
+alias lsf="ls -1 -d $PWD/*"
+
 # Alias Editing
 alias ae='vim $yadr/zsh/aliases.zsh' #alias edit
 alias ar='source $yadr/zsh/aliases.zsh'  #alias reload
@@ -66,7 +68,13 @@ alias ve='vim ~/.vimrc'
 alias ze='vim ~/.zshrc'
 alias zr='source ~/.zshrc'
 
+# Rubocop 
+alias gitcop="git status --porcelain | cut -c4- | grep '.rb' | xargs rubocop -a"
+
+
 # Git Aliases
+alias gpfm="gco master; git pull --force origin master"
+alias gpf="git push --force origin"
 alias gs='git status'
 alias gstsh='git stash'
 alias gst='git stash'
@@ -92,6 +100,7 @@ alias grr='git remote rm'
 alias grad='git remote add'
 alias gr='git rebase'
 alias gra='git rebase --abort'
+alias grom='git pull --rebase origin master'
 alias ggrc='git rebase --continue'
 alias gbi='git rebase --interactive'
 alias gl='git l'
@@ -122,6 +131,7 @@ alias gsmu='git submodule update'
 alias gt='git t'
 alias gbg='git bisect good'
 alias gbb='git bisect bad'
+
 
 # Common shell functions
 alias less='less -r'
@@ -199,3 +209,7 @@ function fir() {
 for spec_file in $(ag -g $1 $2); do sed -i.bak "s/$3/$4/g" $spec_file; done
 }
 
+function ggvim() {
+  git grep -l $1 |  xargs vim
+}
+alias repow="powder down &&  rake db:drop db:create db:migrate  && powder up && rake db:test:prepare db:seed"
