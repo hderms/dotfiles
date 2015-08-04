@@ -31,6 +31,7 @@ map <silent> <LocalLeader>nh :nohls<CR>
 map <silent> <LocalLeader>ss :SSave<CR>
 map <silent> <LocalLeader>sl :SLoad<CR>
 map <silent> <LocalLeader>sd :SDelete<CR>
+map <silent> <LocalLeader>gp :Gist --private<CR>
 
 set hlsearch
 set number
@@ -48,6 +49,11 @@ set foldlevelstart=20
 set foldcolumn=4
 set ignorecase
 set smartcase
+
+Bundle 'mhinz/vim-startify'
+Bundle 'Lokaltog/vim-powerline'
+Bundle 'lunaru/vim-less'
+Bundle 'tommcdo/vim-lion'
 
 
 "ws -- white space: removes all trailing whitespace from a file
@@ -91,10 +97,6 @@ nnoremap <M-Up> <C-W>k
 
 "Git related stuff:
 au FileType gitcommit set tw=72
-Bundle 'mhinz/vim-startify'
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'lunaru/vim-less'
-Bundle 'tommcdo/vim-lion'
 
 
 syntax enable
