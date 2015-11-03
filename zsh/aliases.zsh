@@ -131,6 +131,9 @@ alias gsmu='git submodule update'
 alias gt='git t'
 alias gbg='git bisect good'
 alias gbb='git bisect bad'
+alias grhh='git rebase -i HEAD\^\^'
+alias gitpr='hub pull-request -m "$(git log --format=%B -n 1)" | pbcopy'
+
 
 
 # Common shell functions

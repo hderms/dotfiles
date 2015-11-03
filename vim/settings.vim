@@ -32,6 +32,7 @@ map <silent> <LocalLeader>ss :SSave<CR>
 map <silent> <LocalLeader>sl :SLoad<CR>
 map <silent> <LocalLeader>sd :SDelete<CR>
 map <silent> <LocalLeader>gp :Gist --private<CR>
+map <silent> <LocalLeader>ga :Gist -m --private<CR>
 
 set hlsearch
 set number
@@ -54,6 +55,7 @@ Bundle 'mhinz/vim-startify'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'lunaru/vim-less'
 Bundle 'tommcdo/vim-lion'
+Bundle 'elixir-lang/vim-elixir'
 
 
 "ws -- white space: removes all trailing whitespace from a file
@@ -125,3 +127,4 @@ imap <silent> <Leader>co <Esc>:set   cursorcolumn   cursorline  <CR>a
 map <silent> <Leader>cn      :set nocursorcolumn nocursorline  <CR>
 imap <silent> <Leader>cn <Esc>:set nocursorcolumn nocursorline  <CR>a
 
+filetype plugin on
