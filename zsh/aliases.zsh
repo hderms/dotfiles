@@ -103,6 +103,7 @@ alias gra='git rebase --abort'
 alias grom='git pull --rebase origin master'
 alias ggrc='git rebase --continue'
 alias gbi='git rebase --interactive'
+alias gg='git grep'
 alias gl='git l'
 alias glg='git l'
 alias glog='git l'
@@ -175,6 +176,8 @@ alias portforward='sudo ipfw add 1000 forward 127.0.0.1,3000 ip from any to any 
 alias rdm='rake db:migrate'
 alias rdmr='rake db:migrate:redo'
 
+alias mkdirp='mkdir -p'
+
 
 
 # Rspec
@@ -191,7 +194,7 @@ alias sp='sprintly'
 alias spb="git checkout -b \`sp | tail -2 | grep '#' | sed 's/^ //' | sed 's/[^A-Za-z0-9 ]//g' | sed 's/ /-/g' | cut -d"-" -f1,2,3,4,5\`"
 
 alias hpr='hub pull-request'
-alias grb='git recent-branches'
+alias grecb='git recent-branches'
 
 # Finder
 alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
